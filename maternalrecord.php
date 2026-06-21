@@ -29,7 +29,22 @@ if(!$row)
     <link rel="stylesheet" href="maternalrecord.css">
 </head>
 <body>
+<nav>
 
+    <div class="logo">
+        <img src="logo.jfif" alt="Logo">
+        <h1>MaternCare</h1>
+    </div>
+
+    <ul>
+        <li><a href="patienthome.php">Home</a></li>
+        <li><a href="bookingpage.php">Booking</a></li>
+        <li><a href="maternalrecord.php">Maternal Record</a></li>
+        <li><a href="logout.php" class="logout-btn">Sign Out</a></li>
+    </ul>
+
+</nav>
+    
 <div class="main-container">
 
     <h1>My Medical Record</h1>
