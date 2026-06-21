@@ -1,0 +1,152 @@
+body{
+    background-color:#e6d4e6;
+    font-family:Arial, sans-serif;
+    margin:0;
+    padding:0;
+}
+
+
+h1{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#2f7d45;
+    margin-top:40px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+
+nav{
+    background:#4f925d;
+    margin:20px;
+    border-radius:40px;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:25px;
+    margin:0;
+    padding:0;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-size:17px;
+}
+
+nav ul li a:hover{
+    color:#e8f5e9;
+}
+
+.logout-btn{
+    background:white;
+    color:#4f925d !important;
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    background:#f1f1f1;
+}
+
+/* Appointment Cards */
+
+.history-container{
+    max-width:500px;
+    margin:30px auto;
+}
+
+.appointment-card{
+    background:white;
+    border-radius:15px;
+    padding:15px 20px;
+    margin-bottom:15px;
+    border-left:6px solid #4f9158;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.appointment-card p{
+    margin:8px 0;
+    font-size:16px;
+    line-height:1.5;
+}
+
+.appointment-card strong{
+    color:#2f7d45;
+}
+
+.status{
+    color:#2f7d45;
+    font-weight:bold;
+}
+
+.status-approved{
+    color:green;
+    font-weight:bold;
+}
+
+.status-pending{
+    color:orange;
+    font-weight:bold;
+}
+
+.status-rejected{
+    color:red;
+    font-weight:bold;
+}
+
+.no-record{
+    text-align:center;
+    font-size:18px;
+    margin-top:50px;
+    color:#555;
+}

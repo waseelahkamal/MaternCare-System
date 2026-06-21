@@ -1,0 +1,136 @@
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f5dff4;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#4f925d;
+    margin:20px;
+    border-radius:40px;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav input{
+    padding:10px;
+    border:none;
+    border-radius:30px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+    align-items:center;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+.logout-btn{
+    background:white;
+    color:black !important;
+    border:2px solid white;
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.logout-btn:hover{
+    background:transparent !important;
+    color:white !important;
+}
+
+/* HERO SECTION */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:50px;
+}
+
+.text p{
+    color:#3f7f4e;
+    line-height:28px;
+}
+
+.text h1{
+    color:#3f7f4e;
+    font-size:50px;
+    font-family:Times New Roman;
+}
+
+.text h2{
+    color:#3f7f4e;
+    font-size:40px;
+}
+
+.doctor img{
+    width:350px;
+}
+
+/* HOSPITAL INFO */
+
+.hospital-info{
+    margin-left:50px;
+    margin-top:20px;
+}
+
+.hospital-info h1{
+    color:#3f7f4e;
+    font-size:45px;
+    font-family:Times New Roman;
+}
+
+.hospital-info p{
+    color:#3f7f4e;
+    line-height:30px;
+}
+
+/* CARD SECTION */
+
+.card-container{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+    margin:50px;
+}
+
+/* CARD */
+
+.info-card{
+    width:280px;
+    background:#4f925d;
+    border-radius:40px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    color:white;
+}
+
+.info-card img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.info-card h2{
+    margin:0;
+}
+
+.info-card p{
+    margin-top:5px;
+}

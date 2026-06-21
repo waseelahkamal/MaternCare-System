@@ -1,0 +1,196 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5dff4;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav{
+    background:#4f925d;
+    margin:20px;
+    border-radius:40px;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:25px;
+    margin:0;
+    padding:0;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-size:17px;
+}
+
+nav ul li a:hover{
+    color:#e8f5e9;
+}
+
+.logout-btn{
+    background:white;
+    color:#4f925d !important;
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    background:#f1f1f1;
+}
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px 60px;
+}
+
+.text{
+    width:40%;
+}
+
+.text h1{
+    font-size:35px;
+    color:#3f7f4e;
+    font-family:Times New Roman;
+}
+
+.text h2{
+    font-size:20px;
+    color:#555;
+}
+
+.text p{
+    font-size:25px;
+    color:#555;
+}
+
+.stats{
+    display:flex;
+    gap:20px;
+}
+
+.total-card{
+    background:#4f925d;
+    color:white;
+    width:220px;
+    height:160px;
+    border-radius:25px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.total-card h2{
+    font-size:28px;
+}
+
+.total-card h1{
+    font-size:55px;
+    margin-top:10px;
+}
+
+.total-card h1{
+    font-size:55px;
+    margin-top:10px;
+}
+
+.doctor-notes{
+    margin:50px;
+}
+
+.doctor-notes h2{
+    color:#2f7d44;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.notes-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:25px;
+}
+
+.note-card{
+    background:white;
+    border-left:8px solid #58a766;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.note-card:hover{
+    transform:translateY(-5px);
+}
+
+.note-card h3{
+    color:#2f7d44;
+    margin-top:0;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.note-card p{
+    color:#555;
+    font-size:15px;
+    line-height:1.7;
+}
+
+@media(max-width:768px){
+
+    .notes-grid{
+        grid-template-columns:1fr;
+    }
+
+}

@@ -1,0 +1,117 @@
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f5dff4;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav{
+    background:#4f925d;
+    margin:20px;
+    border-radius:40px;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav input{
+    padding:10px;
+    border:none;
+    border-radius:30px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+    align-items:center;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.logout-btn{
+    background:white;
+    color:#4f925d !important;
+    padding:10px 20px;
+    border-radius:20px;
+}
+
+h2{
+    margin-left:40px;
+    color:#3f7f4f;
+}
+
+.form-box{
+    width:700px;
+    margin:30px auto;
+    background:#4f925d;
+    padding:40px;
+    border-radius:35px;
+}
+
+.row{
+    display:flex;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.row label{
+    width:180px;
+    color:white;
+    font-size:24px;
+}
+
+.row input,
+.row select{
+    width:250px;
+    padding:12px;
+    border:none;
+    border-radius:20px;
+}
+
+.button-area{
+    text-align:right;
+    margin-top:30px;
+}
+
+.button-area button{
+    background:white;
+    color:#4f925d;
+    border:none;
+    padding:12px 25px;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+.message{
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    margin-bottom:20px;
+}

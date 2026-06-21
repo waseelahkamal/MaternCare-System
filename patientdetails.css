@@ -1,0 +1,142 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#ead7ea;
+}
+
+/* NAVIGATION */
+
+nav{
+    background:#4f925d;
+    margin:20px;
+    border-radius:40px;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:25px;
+    margin:0;
+    padding:0;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-size:17px;
+}
+
+nav ul li a:hover{
+    color:#e8f5e9;
+}
+
+/* LOGOUT BUTTON */
+
+.logout-btn{
+    background:white;
+    color:#4f925d !important;
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    background:#f1f1f1;
+}
+
+/* CONTAINER */
+
+.container{
+    width:65%;
+    margin:30px auto;
+}
+
+/* SECTION */
+
+.section{
+    background:#F0FFF0;
+    border:1px solid #F0FFF0;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:25px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* SECTION TITLE */
+
+.section h2{
+    text-align:center;
+    color:#2e7d4f;
+    margin-top:0;
+    margin-bottom:25px;
+    border-bottom:2px solid #d8d8d8;
+    padding-bottom:12px;
+}
+
+/* INFORMATION ROW */
+
+.info-row{
+    display:flex;
+    padding:12px 0;
+    border-bottom:1px solid #e0e0e0;
+}
+
+.info-row:last-child{
+    border-bottom:none;
+}
+
+.info-row label{
+    width:220px;
+    font-weight:bold;
+    color:#2e7d4f;
+}
+
+.info-row span{
+    flex:1;
+    color:#333;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .container{
+        width:90%;
+    }
+
+    .info-row{
+        flex-direction:column;
+        gap:5px;
+    }
+
+    .info-row label{
+        width:auto;
+    }
+}

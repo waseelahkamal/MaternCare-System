@@ -1,0 +1,48 @@
+body{
+    margin:0;
+    padding:40px;
+    font-family:Arial, sans-serif;
+    background:#F6E7E1;
+}
+
+.main-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#6E5C56;
+    margin-bottom:40px;
+}
+
+.record-wrapper{
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+}
+
+.card{
+    flex:1;
+    background:#FFF8F4;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.card h2{
+    color:#B67C73;
+    border-bottom:2px solid #E9D2CC;
+    padding-bottom:10px;
+    margin-bottom:20px;
+}
+
+.card p{
+    margin:14px 0;
+    color:#444;
+    line-height:1.6;
+}
+
+strong{
+    color:#5C4B45;
+}

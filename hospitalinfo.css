@@ -1,0 +1,138 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5dff4;
+}
+
+nav{
+    background:#4f925d;
+    margin:20px;
+    border-radius:40px;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+    align-items:center;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.logout-btn{
+    background:white;
+    color:#4f925d !important;
+    padding:10px 20px;
+    border-radius:20px;
+}
+
+.title{
+    margin-left:70px;
+    margin-top:40px;
+    color:#3f7f4e;
+    font-size:35px;
+    text-align:center;
+}
+
+.hospital-container{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:50px;
+    padding-bottom:50px;
+}
+
+.card{
+    width:260px;
+    background:#4f925d;
+    padding:20px;
+    border-radius:40px;
+    text-align:center;
+    color:white;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:30px;
+}
+
+.card h2{
+    margin-top:15px;
+    margin-bottom:15px;
+    color:white;
+    font-size:28px;
+}
+
+.card p{
+    font-size:14px;
+    min-height:80px;
+    line-height:1.4;
+}
+
+.btn{
+    display:inline-block;
+    background:white;
+    color:#4f925d;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:25px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.btn:hover{
+    background:#f5dff4;
+}
+
+@media(max-width:900px){
+
+    .hospital-container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .card{
+        width:80%;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}

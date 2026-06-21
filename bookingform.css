@@ -1,0 +1,171 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5dff4;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav{
+    background:#4f925d;
+    margin:20px;
+    border-radius:40px;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:25px;
+    margin:0;
+    padding:0;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-size:17px;
+}
+
+nav ul li a:hover{
+    color:#e8f5e9;
+}
+
+.logout-btn{
+    background:white;
+    color:#4f925d !important;
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    background:#f1f1f1;
+}
+
+.title{
+    text-align:center;
+    margin-top:40px;
+    color:#3f7f4e;
+    font-size:35px;
+}
+
+.form-box{
+    background:#4f925d;
+    width:55%;
+    margin:30px auto;
+    padding:40px;
+    border-radius:30px;
+}
+
+.row{
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+label{
+    width:180px;
+    color:white;
+    font-size:20px;
+}
+
+input,
+select{
+    width:250px;
+    padding:12px 15px;
+    border:none;
+    border-radius:20px;
+    font-size:15px;
+    box-sizing:border-box;
+    outline:none;
+}
+
+/* Kesan bila klik */
+input:focus,
+select:focus{
+    box-shadow:0 0 10px rgba(255,255,255,0.8);
+}
+
+/* Hover dropdown */
+select:hover{
+    cursor:pointer;
+}
+
+/* Bahagian button */
+.buttons{
+    text-align:right;
+    margin-top:30px;
+}
+
+button{
+    padding:10px 25px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#4f925d;
+    font-weight:bold;
+    margin-left:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#e8f5ea;
+    transform:translateY(-2px);
+}
+
+/* Message berjaya */
+.success-message{
+    color:white;
+    background:#3f7f4e;
+    padding:12px;
+    border-radius:15px;
+    margin-top:20px;
+    text-align:center;
+    font-weight:bold;
+}
