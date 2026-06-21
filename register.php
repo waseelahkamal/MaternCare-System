@@ -5,7 +5,7 @@ include("connect.php");
 
 $message = "";
 
-if(isset($_POST['register'])){
+if (isset($_POST['register'])) {
 
     $name = $_POST['name'];
     $ic = $_POST['ic'];
@@ -15,7 +15,7 @@ if(isset($_POST['register'])){
     $check = "SELECT * FROM users WHERE email='$email'";
     $resultCheck = mysqli_query($conn, $check);
 
-    if(mysqli_num_rows($resultCheck) > 0){
+    if (mysqli_num_rows($resultCheck) > 0) {
 
         $message = "Email already registered!";
 
@@ -27,7 +27,7 @@ if(isset($_POST['register'])){
 
         $result = mysqli_query($conn, $sql);
 
-        if($result){
+        if ($result) {
 
             // SAVE NAME INTO SESSION
             $_SESSION['username'] = $name;
@@ -93,6 +93,7 @@ if(isset($_POST['register'])){
                 <a href="index.php">Login Here</a>
 
             </p>
+
         </form>
 
     </div>
