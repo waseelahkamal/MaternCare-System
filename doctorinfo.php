@@ -61,7 +61,7 @@ include("connect.php");
 
     <div class="doctor-card">
 
-        <img src="dietitian.png">
+        <img src="dietitian.jpg">
 
         <h3>Dietitian</h3>
 
