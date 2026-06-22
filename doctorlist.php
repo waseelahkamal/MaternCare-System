@@ -95,9 +95,7 @@ $result
 <td><a class="update" href="updatedoctor.php?id=<?= $row['Doctor_ID'] ?>">
 Update
 </a>
-<a class="delete" href="deletedoctor.php?id=<?= $row['Doctor_ID'] ?>" onclick="return confirm('Delete this doctor?')">
-Delete
-</a>
+
 
 </td>
 
