@@ -1,105 +1,107 @@
 <?php
-
 session_start();
 
 $conn=mysqli_connect("localhost","root","","MaternCare");
 
 $message="";
+$type="";
 
-$hospital_query=mysqli_query(
-$conn,
-"SELECT Hospital_ID,Name FROM hospital"
-);
+$hospital_query=mysqli_query($conn,"SELECT Hospital_ID,Name FROM hospital");
 
 if(isset($_POST['submit']))
 {
-
 $name=$_SESSION['username'];
-
-$IC_Number=$_POST['IC_Number'];
-
+$IC_Number=trim($_POST['IC_Number']);
 $age=$_POST['age'];
-
-$mobile=$_POST['mobile'];
-
+$mobile=trim($_POST['mobile']);
 $date=$_POST['appointment_date'];
-
 $time=$_POST['time'];
-
 $hospital_id=$_POST['hospital'];
+$status="Pending";
 
-$hospital_result=mysqli_query(
+if(!preg_match("/^\d{12}$/",$IC_Number))
+{
+$message="IC Number must contain 12 digits";
+$type="error";
+}
+
+elseif($date<=date("Y-m-d"))
+{
+$message="Appointment date must be after today";
+$type="error";
+}
+
+else
+{
+$hospital=mysqli_query(
 $conn,
 "SELECT Name FROM hospital WHERE Hospital_ID='$hospital_id'"
 );
 
-$hospital_row=mysqli_fetch_assoc($hospital_result);
+$row=mysqli_fetch_assoc($hospital);
 
-$hospital_name=$hospital_row['Name'];
-
-$status="Pending";
-
-/* BUSINESS LOGIC */
-
-$limit=1;
+$hospital_name=$row['Name'];
 
 $check=mysqli_query(
 $conn,
-
-"SELECT COUNT(*) AS total
+"SELECT COUNT(*) total
 FROM booking
 WHERE appointment_date='$date'
 AND Time='$time'"
 );
 
-$row=mysqli_fetch_assoc($check);
+$total=mysqli_fetch_assoc($check);
 
-if($row['total']>=$limit)
+if($total['total']>=1)
 {
-$message="Selected appointment slot is full. Please choose another time.";
+$message="Selected appointment slot is full";
+$type="error";
 }
+
 else
 {
-
 $sql="INSERT INTO booking
-(Name,IC_Number,age,Time,mobile,
-appointment_date,
-Hospital_Name,
-Status)
+(Name,IC_Number,age,Time,mobile,appointment_date,Hospital_Name,Status)
 
 VALUES
 
-('$name',
-'$IC_Number',
-'$age',
-'$time',
-'$mobile',
-'$date',
-'$hospital_name',
-'$status')";
+('$name','$IC_Number','$age','$time','$mobile','$date','$hospital_name','$status')";
 
 if(mysqli_query($conn,$sql))
 {
-$message="Thank you for making a booking!";
+$message="Booking successful";
+$type="success";
 }
+
 else
 {
-$message="Booking failed! ".mysqli_error($conn);
+$message="Booking failed";
+$type="error";
 }
 
 }
+
+}
+
 }
 ?>
 
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <title>Booking Form</title>
+
 <link rel="stylesheet" href="bookingform.css">
+
 </head>
 
 <body>
+
 <nav>
+
 <div class="logo">
 <img src="logo.jfif">
 <h1>MaternCare</h1>
@@ -113,65 +115,116 @@ $message="Booking failed! ".mysqli_error($conn);
 </ul>
 
 </nav>
-<h1 class="title"> Booking Form</h1>
+
+<h1 class="title">
+Booking Form
+</h1>
 
 <div class="form-box">
+
 <form method="POST">
+
 <div class="row">
 
 <label>IC Number</label>
-<input type="text" name="IC_Number" placeholder="000000-00-0000" required>
+
+<input
+type="text"
+name="IC_Number"
+placeholder="000000000000"
+pattern="[0-9]{12}"
+maxlength="12"
+required>
+
 </div>
 
 <div class="row">
 
-<label> Age</label>
-<input type="number" name="age" required>
+<label>Age</label>
+
+<input
+type="number"
+name="age"
+required>
+
 </div>
 
 <div class="row">
-<label> Mobile Number</label>
-<input type="text" name="mobile" placeholder="000-0000-0000" required>
+
+<label>Mobile Number</label>
+
+<input
+type="text"
+name="mobile"
+required>
+
 </div>
 
 <div class="row">
-<label> Preferred Hospital</label>
-<select name="hospital" required> <option value=""> Select Preferred Hospital</option>
 
-<?php
-while($hospital=mysqli_fetch_assoc($hospital_query))
-{
-?>
+<label>Preferred Hospital</label>
 
-<option value="<?php echo $hospital['Hospital_ID'];?>">
-<?php echo $hospital['Name'];?></option>
+<select name="hospital" required>
 
-<?php
-}
-?>
+<option value="">
+Select Hospital
+</option>
+
+<?php while($hospital=mysqli_fetch_assoc($hospital_query)){ ?>
+
+<option value="<?= $hospital['Hospital_ID'] ?>">
+<?= $hospital['Name'] ?>
+</option>
+
+<?php } ?>
 
 </select>
-</div>
-<div class="row">
-<label> Date of Appointment</label>
 
-<input type="date" name="appointment_date" required>
 </div>
 
 <div class="row">
+
+<label>Date of Appointment</label>
+
+<input
+type="date"
+name="appointment_date"
+min="<?= date('Y-m-d',strtotime('+1 day')) ?>"
+required>
+
+</div>
+
+<div class="row">
+
 <label>Time</label>
-<input type="time" name="time" required>
+
+<input
+type="time"
+name="time"
+required>
+
 </div>
 
 <div class="buttons">
-<button type="submit" name="submit"> Submit</button>
 
-<button type="reset"> Clear </button></div>
+<button type="submit" name="submit">
+Submit
+</button>
 
-</form>
-<p class="success-message"><?php echo $message; ?></p>
+<button type="reset">
+Clear
+</button>
 
 </div>
+
+</form>
+
+<p class="<?= $type ?>">
+<?= $message ?>
+</p>
+
+</div>
+
 </body>
 
 </html>
