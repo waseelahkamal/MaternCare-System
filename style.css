@@ -23,7 +23,6 @@ body{
     font-size:35px;
 }
 
-/* CONTAINER */
 .container{
     width:90%;
     margin:auto;
@@ -33,7 +32,6 @@ body{
     min-height:80vh;
 }
 
-/* LEFT SIDE */
 .left{
     width:400px;
     background:#4f925d;
@@ -78,7 +76,6 @@ body{
     background:#e8e8e8;
 }
 
-/* RIGHT SIDE */
 .right img{
     width:450px;
     border-radius:30px;
