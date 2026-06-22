@@ -125,18 +125,15 @@ select{
     outline:none;
 }
 
-/* Kesan bila klik */
 input:focus,
 select:focus{
     box-shadow:0 0 10px rgba(255,255,255,0.8);
 }
 
-/* Hover dropdown */
 select:hover{
     cursor:pointer;
 }
 
-/* Bahagian button */
 .buttons{
     text-align:right;
     margin-top:30px;
@@ -159,7 +156,6 @@ button:hover{
     transform:translateY(-2px);
 }
 
-/* Message berjaya */
 .success-message{
     color:white;
     background:#3f7f4e;
@@ -168,4 +164,16 @@ button:hover{
     margin-top:20px;
     text-align:center;
     font-weight:bold;
+}
+
+.success{
+color:black;
+font-weight:bold;
+text-align:center;
+}
+
+.error{
+color:red;
+font-weight:bold;
+text-align:center;
 }
