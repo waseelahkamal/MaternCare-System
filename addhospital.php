@@ -50,16 +50,16 @@ if(isset($_POST['add']))
     </div>
     
     <ul>
-
         <li><a href="adminhome.php">Home</a></li>
+        <li><a href="adminreport.php">Report</a></li>
+        <li><a href="doctorlist.php">Doctor List</a></li>
         <li><a href="adminrecord.php">Record</a></li>
         <li><a href="logout.php"class="logout-btn">Sign Out</a>
-
     </li>
-
     </ul>
 
 </nav>
+
 
 <h2>Add Hospital</h2>
 
