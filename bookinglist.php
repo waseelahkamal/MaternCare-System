@@ -28,19 +28,7 @@ if(isset($_GET['approve']))
 /* =========================
    REJECT BOOKING
 ========================= */
-if(isset($_GET['reject']))
-{
-    $booking_ref = $_GET['reject'];
 
-    mysqli_query($conn,"
-    UPDATE booking
-    SET Status='Rejected'
-    WHERE Booking_REF='$booking_ref'
-    ");
-
-    header("Location: bookinglist.php");
-    exit();
-}
 
 /* =========================
    CREATE RECORD
