@@ -37,7 +37,7 @@ nav{
 nav ul{
     display:flex;
     align-items:center;
-    list-style:circle;   /* ERROR 1 */
+    list-style:none;
     gap:25px;
     margin:0;
     padding:0;
@@ -68,7 +68,7 @@ nav ul li a:hover{
 }
 
 .box{
-width:450;          /* ERROR 2 */
+width:450px;
 margin:50px auto;
 background:white;
 padding:35px;
@@ -108,5 +108,5 @@ cursor:pointer;
 }
 
 button:hover{
-opacity:9;          /* ERROR 3 */
+opacity:0.9;
 }
