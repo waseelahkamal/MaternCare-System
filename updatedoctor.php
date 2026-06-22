@@ -37,15 +37,8 @@ if(isset($_POST['update']))
             window.location='doctorlist.php';
         </script>
         ";
+
         exit();
-    }
-    else
-    {
-        echo "
-        <script>
-            alert('Update failed!');
-        </script>
-        ";
     }
 }
 
@@ -56,46 +49,50 @@ if(isset($_POST['update']))
 <html>
 
 <head>
-    <title>Update Doctor</title>
-    <link rel="stylesheet" href="updatedoctor.css">
+<title>Update Doctor</title>
+<link rel="stylesheet" href="updatedoctor.css">
 </head>
 
 <body>
 
 <div class="box">
 
-    <h1>Update Doctor</h1>
+<h1>Update Doctor</h1>
 
-    <form method="POST">
+<form method="POST">
 
-        <label>Doctor ID</label>
-        <input type="text"
-               value="<?= $row['Doctor_ID'] ?>"
-               readonly>
+<label>Doctor ID</label>
 
-        <label>Name</label>
-        <input type="text"
-               name="name"
-               value="<?= $row['Name'] ?>"
-               required>
+<input type="text"
+value="<?= $row['Doctor_ID'] ?>"
+readonly>
 
-        <label>Specialization</label>
-        <input type="text"
-               name="specialization"
-               value="<?= $row['Specialization'] ?>"
-               required>
+<label>Name</label>
 
-        <label>Email</label>
-        <input type="email"
-               name="email"
-               value="<?= $row['Email'] ?>"
-               required>
+<input type="text"
+name="name"
+value="<?= $row['Name'] ?>"
+required>
 
-        <button type="submit" name="update">
-            Save
-        </button>
+<label>Specialization</label>
 
-    </form>
+<input type="text"
+name="specialization"
+value="<?= $row['Specialization'] ?>"
+required>
+
+<label>Email</label>
+
+<input type="email"
+name="email"
+value="<?= $row['Email'] ?>"
+required>
+
+<button type="submit" name="update">
+Save
+</button>
+
+</form>
 
 </div>
 
