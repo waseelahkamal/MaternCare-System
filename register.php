@@ -11,7 +11,6 @@ if (isset($_POST['register'])) {
     $ic = $_POST['ic'];
     $email = $_POST['email'];
 
-    // CHECK EMAIL
     $check = "SELECT * FROM users WHERE email='$email'";
     $resultCheck = mysqli_query($conn, $check);
 
@@ -21,7 +20,6 @@ if (isset($_POST['register'])) {
 
     } else {
 
-        // INSERT DATA
         $sql = "INSERT INTO users(name, ic_number, email)
                 VALUES('$name','$ic','$email')";
 
@@ -29,10 +27,8 @@ if (isset($_POST['register'])) {
 
         if ($result) {
 
-            // SAVE NAME INTO SESSION
             $_SESSION['username'] = $name;
 
-            // GO TO HOME PAGE
             header("Location: patienthome.php");
             exit();
 
