@@ -16,9 +16,13 @@ LIMIT 1
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result);
 
-if(!$row)
+if(mysqli_num_rows($result)==0)
 {
-    die("No medical record found.");
+    $row = null;
+}
+else
+{
+    $row = mysqli_fetch_assoc($result);
 }
 ?>
 
@@ -90,7 +94,16 @@ if(!$row)
             <p><strong>Notes:</strong> <?php echo $row['Notes']; ?></p>
 
         </div>
+<?php else: ?>
 
+    <div class="card">
+        <h2>No Medical Record</h2>
+        <p>Your medical record has not been created yet.</p>
+    </div>
+
+<?php endif; ?>
+
+</div>
     </div>
 
 </div>
