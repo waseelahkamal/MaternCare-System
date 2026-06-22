@@ -2,12 +2,10 @@
 $conn=mysqli_connect("localhost","root","","MaternCare");
 
 $sql="SELECT * FROM record";
-
 $result=mysqli_query($conn,$sql);
 ?>
 
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -16,28 +14,30 @@ $result=mysqli_query($conn,$sql);
 </head>
 
 <body>
+
 <nav>
 
-    <div class="logo">
-        <img src="logo.jfif" alt="Logo">
-        <h1>MaternCare</h1>
-    </div>
-    
-    <ul>
-        <li><a href="adminhome.php">Home</a></li>
-        <li><a href="adminreport.php">Report</a></li>
-        <li><a href="doctorlist.php">Doctor List</a></li>
-        <li><a href="adminrecord.php">Record</a></li>
-        <li><a href="logout.php"class="logout-btn">Sign Out</a>
-    </li>
-    </ul>
+<div class="logo">
+<img src="logo.jfif" alt="Logo">
+<h1>MaternCare</h1>
+</div>
+
+<ul>
+<li><a href="adminhome.php">Home</a></li>
+<li><a href="adminreport.php">Report</a></li>
+<li><a href="doctorlist.php">Doctor List</a></li>
+<li><a href="adminrecord.php">Record</a></li>
+<li><a href="logout.php" class="logout-btn">Sign Out</a></li>
+</ul>
 
 </nav>
 
 <div class="container">
+
 <h1>Patient Records</h1>
 
 <table>
+
 <tr>
 <th>Record Ref</th>
 <th>Booking Ref</th>
@@ -49,22 +49,35 @@ $result=mysqli_query($conn,$sql);
 <?php while($row=mysqli_fetch_assoc($result)){ ?>
 
 <tr>
+
 <td><?= $row['Record_REF'] ?></td>
+
 <td><?= $row['Booking_REF'] ?></td>
+
 <td><?= $row['Name'] ?></td>
+
 <td>
-
-<a class="view" href="adminview.php?id=<?= $row['Record_REF'] ?>"> View </a>
-
+<a class="view" href="adminview.php?id=<?= $row['Record_REF'] ?>">
+View
+</a>
 </td>
 
 <td>
-<a class="delete" href="deleterecord.php?id=<?= $row['Record_REF'] ?>" onclick="return confirm('Delete this record?')"> Delete</a>
+<a
+class="delete"
+href="deleterecord.php?id=<?= $row['Record_REF'] ?>"
+onclick="return confirm('Are you sure you want to delete this record?')">
+Delete
+</a>
 </td>
 
 </tr>
+
 <?php } ?>
+
 </table>
+
 </div>
+
 </body>
 </html>
