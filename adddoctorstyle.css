@@ -3,6 +3,15 @@ body{
     font-family:Arial;
     background:#f5dff4;
 }
+nav{
+    background:#4f925d;
+    margin:20px;
+    border-radius:40px;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
 .logo{
     display:flex;
@@ -24,77 +33,106 @@ body{
     font-weight:bold;
 }
 
-nav{
-    background:#4f925d;
-    margin:20px;
-    border-radius:40px;
-    padding:15px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-nav input{
-    padding:10px;
-    border:none;
-    border-radius:30px;
-}
-
 nav ul{
     display:flex;
-    list-style:none;
-    gap:20px;
     align-items:center;
+    list-style:none;
+    gap:25px;
+    margin:0;
+    padding:0;
 }
 
 nav ul li a{
-    color:white;
     text-decoration:none;
+    color:white;
     font-weight:bold;
+    font-size:17px;
+}
+
+nav ul li a:hover{
+    color:#e8f5e9;
 }
 
 .logout-btn{
     background:white;
     color:#4f925d !important;
     padding:10px 20px;
-    border-radius:20px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    background:#f1f1f1;
 }
 
 h2{
-    margin-left:40px;
+    text-align:center;
     color:#3f7f4f;
+    font-size:36px;
+    font-weight:bold;
+    margin:30px 0;
+    letter-spacing:1px;
 }
 
+
 .form-box{
-    width:700px;
+    width:650px;
     margin:30px auto;
     background:#4f925d;
     padding:40px;
-    border-radius:35px;
+    border-radius:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.form-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.form-header h3{
+    color:white;
+    margin:0;
+    font-size:30px;
+}
+
+.form-header p{
+    color:#e8f5ec;
+    margin-top:8px;
+    font-size:14px;
 }
 
 .row{
     display:flex;
     align-items:center;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .row label{
     width:180px;
     color:white;
-    font-size:24px;
+    font-size:18px;
+    font-weight:bold;
 }
 
 .row input,
 .row select{
-    width:250px;
-    padding:12px;
+    flex:1;
+    padding:14px;
     border:none;
-    border-radius:20px;
+    border-radius:15px;
+    background:white;
+    font-size:15px;
+    outline:none;
+}
+
+.row input:focus,
+.row select:focus{
+    box-shadow:0 0 8px rgba(255,255,255,0.7);
 }
 
 .button-area{
-    text-align:right;
+    text-align:center;
     margin-top:30px;
 }
 
@@ -102,16 +140,25 @@ h2{
     background:white;
     color:#4f925d;
     border:none;
-    padding:12px 25px;
-    border-radius:20px;
+    padding:12px 30px;
+    border-radius:25px;
     font-weight:bold;
     cursor:pointer;
-    margin-left:10px;
+    margin:0 10px;
+    transition:0.3s;
+}
+
+.button-area button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 12px rgba(0,0,0,0.2);
 }
 
 .message{
+    background:#ffffff20;
     color:white;
+    padding:12px;
+    border-radius:10px;
     text-align:center;
-    font-weight:bold;
     margin-bottom:20px;
+    font-weight:bold;
 }
