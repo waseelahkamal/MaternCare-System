@@ -15,45 +15,59 @@ if(isset($_GET['record_ref']))
 }
 
 if(isset($_POST['save_assessment']))
-{
-    $record_ref = $_POST['record_ref'];
-
-    $blood_pressure = $_POST['blood_pressure'];
-    $weight = $_POST['weight'];
-    $height = $_POST['height'];
-    $pregnancy_week = $_POST['pregnancy_week'];
-    $heart_rate = $_POST['heart_rate'];
-    $blood_sugar = $_POST['blood_sugar'];
-    $fetal_movement = $_POST['fetal_movement'];
-    $medical_condition = $_POST['medical_condition'];
-    $notes = $_POST['condition_notes'];
-
-    $sql = "
-    UPDATE record SET
-    BloodPressure='$blood_pressure',
-    Weight='$weight',
-    Height='$height',
-    PregnancyWeek='$pregnancy_week',
-    BabyHeartRate='$heart_rate',
-    BloodSugarLevel='$blood_sugar',
-    FetalMovement='$fetal_movement',
-    MedicalCondition='$medical_condition',
-    Notes='$notes'
-    WHERE Record_REF='$record_ref'
-    ";
-
-    $result = mysqli_query($conn, $sql);
-
-    if($result)
     {
-        echo "<script>alert('Assessment saved successfully');</script>";
-    }
-    else
-    {
-        echo "<script>alert('Error: ".mysqli_error($conn)."');</script>";
-    }
-}
+        $record_ref=$_POST['record_ref'];
 
+        if(
+            empty($_POST['blood_pressure']) ||
+            empty($_POST['weight']) ||
+            empty($_POST['height']) ||
+            empty($_POST['pregnancy_week']) ||
+            empty($_POST['heart_rate']) ||
+            empty($_POST['blood_sugar']) ||
+            empty($_POST['fetal_movement']) ||
+            empty($_POST['medical_condition']) ||
+            empty($_POST['condition_notes'])
+        )
+            {
+                echo "<script>alert('Please complete all fields before saving');</script>";
+            }
+            else
+                {
+                    $blood_pressure=$_POST['blood_pressure'];
+                    $weight=$_POST['weight'];
+                    $height=$_POST['height'];
+                    $pregnancy_week=$_POST['pregnancy_week'];
+                    $heart_rate=$_POST['heart_rate'];
+                    $blood_sugar=$_POST['blood_sugar'];
+                    $fetal_movement=$_POST['fetal_movement'];
+                    $medical_condition=$_POST['medical_condition'];
+                    $notes=$_POST['condition_notes'];
+
+                    $sql="
+                    UPDATE record SET
+                        BloodPressure='$blood_pressure',
+                        Weight='$weight',
+                        Height='$height',
+                        PregnancyWeek='$pregnancy_week',
+                        BabyHeartRate='$heart_rate',
+                        BloodSugarLevel='$blood_sugar',
+                        FetalMovement='$fetal_movement',
+                        MedicalCondition='$medical_condition',
+                        Notes='$notes'
+                        WHERE Record_REF='$record_ref'";
+                        $result=mysqli_query($conn,$sql);
+
+                        if($result)
+                            {
+                                echo "<script>alert('Assessment saved successfully');</script>";
+                            }
+                            else
+                                {
+                                    echo "<script>alert('Error');</script>";
+                                }
+                            }
+                        }
 ?>
 
 <!DOCTYPE html>
