@@ -1,7 +1,7 @@
 body{
-margin:0;
-background:#ead7ea;
-font-family:Arial;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#ead7ea;
 }
 
 nav{
@@ -69,51 +69,64 @@ nav ul li a:hover{
 
 
 .container{
-width:85%;
-margin:auto;
+    width:65%;
+    margin:30px auto;
 }
 
-.container h1{
-text-align:center;
-color:#2f7a42;
+.section{
+    background:#F8EAE4;
+    border:1px solid #F8EAE4;
+    padding:15px;
+    border-radius:20px;
+    margin-bottom:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-table{
-width:100%;
-margin-top:30px;
-background:white;
-border-collapse:collapse;
-border-radius:20px;
-overflow:hidden;
+.section h2{
+    color:#7B3F00;
+    margin-top:0;
+    margin-bottom:25px;
+    border-bottom:2px solid #d8d8d8;
+    padding-bottom:12px;
 }
 
-th{
-background:#4f925d;
-color:white;
-padding:18px;
+/* INFORMATION ROW */
+
+.info-row{
+    display:flex;
+    padding:12px 0;
+    border-bottom:1px solid #e0e0e0;
 }
 
-td{
-padding:18px;
-text-align:center;
+.info-row:last-child{
+    border-bottom:none;
 }
 
-tr:hover{
-background:#f6f6f6;
+.info-row label{
+    width:220px;
+    font-weight:bold;
+    color:#2e7d4f;
 }
 
-.view{
-background:#3498db;
-color:white;
-padding:10px 18px;
-border-radius:20px;
-text-decoration:none;
+.info-row span{
+    flex:1;
+    color:#333;
 }
 
-.delete{
-background:#e74c3c;
-color:white;
-padding:10px 18px;
-border-radius:20px;
-text-decoration:none;
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .container{
+        width:90%;
+    }
+
+    .info-row{
+        flex-direction:column;
+        gap:5px;
+    }
+
+    .info-row label{
+        width:auto;
+    }
 }
