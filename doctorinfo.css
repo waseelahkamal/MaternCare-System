@@ -37,14 +37,14 @@ nav ul{
 }
 
 nav ul li a{
-    color:white;
+    color:black;
     text-decoration:none;
     font-weight:bold;
 }
 
 .logout-btn{
     background:white;
-    color:#4f925d !important;
+    color:#4f925f !important;
     padding:10px 20px;
     border-radius:20px;
 }
