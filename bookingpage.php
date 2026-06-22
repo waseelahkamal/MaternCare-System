@@ -11,7 +11,7 @@ include("connect.php");
 <head>
 
     <title>Booking Management</title>
-    <link rel="stylesheet" href="bookingpage.css">
+    <link href="bookingpage.css">
 
 </head>
 
