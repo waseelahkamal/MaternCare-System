@@ -9,7 +9,7 @@ $sql = "
 SELECT *
 FROM record
 WHERE IC_Number='$ic_number'
-ORDER BY Record_REF DESC
+ORDER BY Record_REF ASC
 LIMIT 1
 ";
 
@@ -29,6 +29,7 @@ if(!$row)
     <link rel="stylesheet" href="maternalrecord.css">
 </head>
 <body>
+
 <nav>
 
     <div class="logo">
@@ -44,7 +45,7 @@ if(!$row)
     </ul>
 
 </nav>
-    
+
 <div class="main-container">
 
     <h1>My Medical Record</h1>
