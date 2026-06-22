@@ -54,7 +54,7 @@ $total=mysqli_fetch_assoc($check);
 
 if($total['total']>=1)
 {
-$message="Selected appointment slot is full";
+$message="Selected appointment slot is full. Please choose another time.";
 $type="error";
 }
 
@@ -69,7 +69,7 @@ VALUES
 
 if(mysqli_query($conn,$sql))
 {
-$message="Booking successful";
+$message="Thank you for making a booking !";
 $type="success";
 }
 
