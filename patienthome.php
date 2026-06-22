@@ -34,7 +34,7 @@ $name = $_SESSION['username'];
 
 <div class="content">
 
-    <div class="welcome">
+    <div class="welocome">
 
         <h2>Hi, <?php echo $name; ?>!</h2>
         <h2>Treatments for a <br> Healthy Pregnant Mother</h2>
@@ -63,11 +63,11 @@ $name = $_SESSION['username'];
         <a href="medicalservices.php" class="card">
             <img src="iconmedical.jpg">
             <div>
-                <h3>Medical Services</h3>
+                <h3>"Medical Services</h3>
                 <p>Available services</p>
             </div>
         </a>
-
+        
     </div>
 
 </div>
