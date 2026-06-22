@@ -1,3 +1,5 @@
+MATERNAL RECORD CSS
+
 body{
     margin:0;
     font-family:Arial, sans-serif;
@@ -10,7 +12,7 @@ nav{
     border-radius:40px;
     padding:15px 30px;
     display:flex;
-    justify-content:space-betwen; /* ERROR: betwen -> between */
+    justify-content:space-between;
     align-items:center;
 }
 
@@ -66,7 +68,6 @@ nav ul li a:hover{
 .logout-btn:hover{
     background:#f1f1f1;
 }
-
 .main-container{
     max-width:1200px;
     margin:auto;
@@ -81,7 +82,7 @@ h1{
 .record-wrapper{
     display:flex;
     gap:30px;
-    align-items:flex-strat; /* ERROR: strat -> start */
+    align-items:flex-start;
 }
 
 .card{
@@ -107,8 +108,4 @@ h1{
 
 strong{
     color:#5C4B45;
-}
-
-.card{
-    width:calc(100% - ); /* ERROR yang nampak advanced */
 }
