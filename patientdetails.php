@@ -4,7 +4,7 @@ $conn = mysqli_connect("localhost","root","","materncare");
 
 if(!$conn)
 {
-    die("Connection Failed: " . mysqli_connect_error());
+    fie("Connection Failed: " . mysqli_connect_error());
 }
 
 $record_ref = $_GET['record_ref'];
@@ -37,19 +37,18 @@ $row = mysqli_fetch_assoc($result);
         <li><a href="bookinglist.php">Booking List</a></li>
         <li><a href="logout.php" class="logout-btn">Sign Out</a></li>
     </ul>
-</nav>
+</nav>  
 
-<div class="container">
+    <div class="container">
+        <div class="section">
 
-    <div class="section">
+            <h2>Pateint Medical Record</h2>
 
-        <h2>Patient Medical Record</h2>
-
-        <p><b>Name:</b> <?php echo $row['Name']; ?></p>
-        <p><b>IC Number:</b> <?php echo $row['IC_Number']; ?></p>
-        <p><b>Booking Ref:</b> <?php echo $row['Booking_REF']; ?></p>
-        <p><b>Checkup Date:</b> <?php echo $row['CheckupDate']; ?></p>
-        <p><b>Checkup Time:</b> <?php echo $row['CheckupTime']; ?></p>
+            <p><b>Name:</b> <?php echo $row['Name']; ?></p>
+            <p><b>IC Number:</b> <?php echo $row['IC_Number']; ?></p>
+            <p><b>Booking Ref:</b> <?php echo $row['Booking_REF']; ?></p>
+            <p><b>Checkup Date:</b> <?php echo $row['CheckupDate']; ?></p>
+            <p><b>Checkup Time:</b> <?php echo $row['CheckupTime']; ?></p>
 
         <br>
 
@@ -66,9 +65,9 @@ $row = mysqli_fetch_assoc($result);
         <p><b>Medical Condition:</b> <?php echo $row['MedicalCondition']; ?></p>
         <p><b>Notes:</b> <?php echo $row['Notes']; ?></p>
 
-    </div>
+        </div>
 
-</div>
+    </div>
 
 </body>
 </html>
