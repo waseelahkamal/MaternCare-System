@@ -50,8 +50,11 @@ if(isset($_POST['add']))
     
     <ul>
         <li><a href="adminhome.php">Home</a></li>
+        <li><a href="adminreport.php">Report</a></li>
+        <li><a href="doctorlist.php">Doctor List</a></li>
         <li><a href="adminrecord.php">Record</a></li>
-        <li><a href="logout.php"class="logout-btn">Sign Out</a></li>
+        <li><a href="logout.php"class="logout-btn">Sign Out</a>
+    </li>
     </ul>
 
 </nav>
@@ -62,32 +65,23 @@ if(isset($_POST['add']))
 
 <div class="form-box">
 
-    <p class="message">
-        <?php echo $message; ?>
-    </p>
+    <?php if($message != "") { ?>
+        <p class="message">
+            <?php echo $message; ?>
+        </p>
+    <?php } ?>
 
     <div class="row">
-
         <label>Doctor ID</label>
-
-        <input type="text"
-               name="doctor_id"
-               required>
-
+        <input type="text" name="doctor_id" required>
     </div>
 
     <div class="row">
-
         <label>Name</label>
-
-        <input type="text"
-               name="name"
-               required>
-
+        <input type="text" name="name" required>
     </div>
 
     <div class="row">
-
         <label>Specialization</label>
 
         <select name="specialization" required>
@@ -97,34 +91,21 @@ if(isset($_POST['add']))
             <option>Dietitian</option>
             <option>Surgeon</option>
         </select>
-
     </div>
 
     <div class="row">
-
         <label>Email</label>
-
-        <input type="email"
-               name="email"
-               required>
-
+        <input type="email" name="email" required>
     </div>
 
     <div class="button-area">
-
-        <button type="submit"
-                name="add">
-
-            Add
-
+        <button type="submit" name="add">
+            Add Doctor
         </button>
 
         <button type="reset">
-
             Clear
-
         </button>
-
     </div>
 
 </div>
