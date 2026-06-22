@@ -4,8 +4,6 @@ body{
     background:#f5dff4;
 }
 
-/* NAVBAR */
-
 nav{
     background:#4f925d;
     margin:20px;
@@ -51,8 +49,6 @@ nav ul li a{
     color:white !important;
 }
 
-/* HERO SECTION */
-
 .hero{
     display:flex;
     justify-content:space-between;
@@ -80,8 +76,6 @@ nav ul li a{
     width:350px;
 }
 
-/* HOSPITAL INFO */
-
 .hospital-info{
     margin-left:50px;
     margin-top:20px;
@@ -98,16 +92,12 @@ nav ul li a{
     line-height:30px;
 }
 
-/* CARD SECTION */
-
 .card-container{
     display:flex;
     gap:40px;
     flex-wrap:wrap;
     margin:50px;
 }
-
-/* CARD */
 
 .info-card{
     width:280px;
