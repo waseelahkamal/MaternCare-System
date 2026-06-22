@@ -10,7 +10,6 @@ if(isset($_POST['login']))
     $name = trim($_POST['name']);
     $ic = trim($_POST['ic']);
 
-    //ADMIN LOGIN
     if(substr($ic,0,1) == "A")
     {
 	    $sql = "SELECT * FROM admins
@@ -34,7 +33,6 @@ if(isset($_POST['login']))
 	    }
     }
 
-    //DOCTOR LOGIN
     else if(substr($ic,0,1) == "D")
     {
 	    $sql = "SELECT * FROM doctors
@@ -59,7 +57,6 @@ if(isset($_POST['login']))
         }
     }
 
-    //PATIENT LOGIN
     else
     {
 	    $sql = "SELECT * FROM users
