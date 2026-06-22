@@ -1,14 +1,14 @@
 body{
     margin:0;
     font-family:Arial;
-    background:#f5dff4;
+    background:#ffffff;
 }
 
 nav{
     background:#4f925d;
     margin:20px;
     border-radius:40px;
-    padding:15px 30px;
+    padding:20px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -30,7 +30,7 @@ nav{
 .logo h1{
     margin:0;
     color:white;
-    font-size:30px;
+    font-size:20px;
     font-weight:bold;
 }
 
@@ -47,7 +47,7 @@ nav ul li a{
     text-decoration:none;
     color:white;
     font-weight:bold;
-    font-size:17px;
+    font-size:18px;
 }
 
 nav ul li a:hover{
@@ -56,7 +56,7 @@ nav ul li a:hover{
 
 .logout-btn{
     background:white;
-    color:#4f925d !important;
+    color:#4f925d;
     padding:10px 20px;
     border-radius:25px;
     text-decoration:none;
