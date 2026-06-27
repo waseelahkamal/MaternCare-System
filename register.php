@@ -4,48 +4,115 @@ session_start();
 include("connect.php");
 
 $message = "";
+$type = "";
 
-if (isset($_POST['register'])) {
+if(isset($_POST['register']))
+{
+    $name = trim($_POST['name']);
+    $ic = trim($_POST['ic']);
+    $email = trim($_POST['email']);
 
-    $name = $_POST['name'];
-    $ic = $_POST['ic'];
-    $email = $_POST['email'];
+    /* VALIDATE IC */
 
-    $check = "SELECT * FROM users WHERE email='$email'";
-    $resultCheck = mysqli_query($conn, $check);
+    if(!preg_match("/^[0-9]{12}$/",$ic))
+    {
+        $message =
+        "IC Number must contain exactly 12 digits and numbers only.";
 
-    if (mysqli_num_rows($resultCheck) > 0) {
-
-        $message = "Email already registered!";
-
-    } else {
-
-        $sql = "INSERT INTO users(name, ic_number, email)
-                VALUES('$name','$ic','$email')";
-
-        $result = mysqli_query($conn, $sql);
-
-        if ($result) {
-
-            $_SESSION['username'] = $name;
-
-            header("Location: patienthome.php");
-            exit();
-
-        } else {
-
-            echo "Error: " . mysqli_error($conn);
-        }
+        $type =
+        "error";
     }
+
+    else
+    {
+
+        /* CHECK EMAIL */
+
+        $check =
+        mysqli_query(
+        $conn,
+        "SELECT *
+        FROM users
+        WHERE Email='$email'"
+        );
+
+        if(mysqli_num_rows($check)>0)
+        {
+            $message =
+            "Email already registered!";
+
+            $type =
+            "error";
+        }
+
+        else
+        {
+
+            /* INSERT USER */
+
+            $sql =
+            "INSERT INTO users
+            (
+                Name,
+                IC_Number,
+                Email
+            )
+
+            VALUES
+            (
+                '$name',
+                '$ic',
+                '$email'
+            )";
+
+            $result =
+            mysqli_query(
+            $conn,
+            $sql
+            );
+
+            if($result)
+            {
+                $message =
+                "Registration successful! Please login.";
+
+                $type =
+                "success";
+
+                header(
+                "refresh:2;url=index.php"
+                );
+            }
+
+            else
+            {
+                $message =
+                "Registration failed!";
+
+                $type =
+                "error";
+            }
+
+        }
+
+    }
+
 }
 ?>
 
 <!DOCTYPE html>
+
 <html>
+
 <head>
 
-    <title>MaternCare</title>
-    <link rel="stylesheet" href="style.css">
+<title>
+MaternCare
+</title>
+
+<link
+rel="stylesheet"
+href="style.css">
 
 </head>
 
@@ -53,54 +120,53 @@ if (isset($_POST['register'])) {
 
 <div class="logo">
 
-    <img src="logo.jfif" alt="logo">
-    <h1>MaternCare</h1>
+<img src="logo.jfif" alt="logo">
+
+<h1>MaternCare</h1>
 
 </div>
 
 <div class="container">
+<div class="left">
 
-    <div class="left">
+<h2>Register Now</h2>
 
-        <h2>Register Now</h2>
+<p class="<?= $type ?>"><?= $message ?></p>
 
-        <p class="message">
-            <?php echo $message; ?>
-        </p>
+<form method="POST">
 
-        <form method="POST">
+<label>Name</label>
 
-            <label>Name</label>
-            <input type="text" name="name" required>
+<input type="text" name="name" required>
 
-            <label>NR-IC / ID Number</label>
-            <input type="text" name="ic" required>
+<label> NR-IC / ID Number </label>
 
-            <label>Email</label>
-            <input type="email" name="email" required>
+<input type="text" name="ic" placeholder="000000000000" pattern="[0-9]{12}" maxlength="12" inputmode="numeric" required>
 
-            <button type="submit" name="register">
-                Register
-            </button>
+<label>Email</label>
 
-            <p style="margin-top:15px;">
+<input type="email" name="email" required>
 
-                Already have account?
-                <a href="index.php">Login Here</a>
+<button type="submit" name="register"> Register </button>
 
-            </p>
+<p style="margin-top:15px;">
 
-        </form>
+Already have account?
 
-    </div>
+<a href="index.php"> Login Here</a>
+</p>
 
-    <div class="right">
+</form>
 
-        <img src="mother.jpg" alt="mother">
+</div>
 
-    </div>
+<div class="right">
+
+<img src="mother.jpg" alt="mother">
+</div>
 
 </div>
 
 </body>
+
 </html>
