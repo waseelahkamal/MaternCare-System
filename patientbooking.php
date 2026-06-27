@@ -6,22 +6,34 @@ $conn=mysqli_connect("localhost","root","","MaternCare");
 $message="";
 $type="";
 
-$hospital_query=mysqli_query($conn,"SELECT Hospital_ID,Name FROM hospital");
+/* check login */
+if(!isset($_SESSION['username']))
+{
+header("Location:index.php");
+exit();
+}
+
+$name=$_SESSION['username'];
+$IC_Number=$_SESSION['IC_Number'];
+
+/* simpan value supaya tak hilang */
+$mobile="";
+$date="";
+$time="";
 
 if(isset($_POST['submit']))
 {
-$name=$_SESSION['username'];
-$IC_Number=trim($_POST['IC_Number']);
-$age=$_POST['age'];
+
 $mobile=trim($_POST['mobile']);
 $date=$_POST['appointment_date'];
 $time=$_POST['time'];
-$hospital_id=$_POST['hospital'];
+
 $status="Pending";
 
-if(!preg_match("/^\d{12}$/",$IC_Number))
+/* masa hanya 8 pagi - 5 petang */
+if($time<"08:00" || $time>"17:00")
 {
-$message="IC Number must contain 12 digits";
+$message="Appointment time only from 8:00 AM until 5:00 PM";
 $type="error";
 }
 
@@ -33,14 +45,6 @@ $type="error";
 
 else
 {
-$hospital=mysqli_query(
-$conn,
-"SELECT Name FROM hospital WHERE Hospital_ID='$hospital_id'"
-);
-
-$row=mysqli_fetch_assoc($hospital);
-
-$hospital_name=$row['Name'];
 
 $check=mysqli_query(
 $conn,
@@ -54,25 +58,45 @@ $total=mysqli_fetch_assoc($check);
 
 if($total['total']>=1)
 {
-$message="Selected appointment slot is full. Please choose another time.";
+$message="Selected appointment slot is unavailable. Please change the appointment date or time.";
 $type="error";
 }
 
 else
 {
+
 $sql="INSERT INTO booking
-(Name,IC_Number,age,Time,mobile,appointment_date,Hospital_Name,Status)
+(
+Name,
+IC_Number,
+mobile,
+appointment_date,
+Time,
+Status
+)
 
 VALUES
-
-('$name','$IC_Number','$age','$time','$mobile','$date','$hospital_name','$status')";
+(
+'$name',
+'$IC_Number',
+'$mobile',
+'$date',
+'$time',
+'$status'
+)";
 
 if(mysqli_query($conn,$sql))
 {
-$message="Thank you for making a booking !";
-$type="success";
-}
 
+$message="Thank you for making a booking!";
+$type="success";
+
+/* clear form selepas berjaya */
+$mobile="";
+$date="";
+$time="";
+
+}
 else
 {
 $message="Booking failed";
@@ -111,7 +135,13 @@ $type="error";
 <li><a href="patienthome.php">Home</a></li>
 <li><a href="bookingpage.php">Booking</a></li>
 <li><a href="maternalrecord.php">Maternal Record</a></li>
-<li><a href="logout.php" class="logout-btn">Sign Out</a></li>
+
+<li>
+<a href="logout.php" class="logout-btn">
+Sign Out
+</a>
+</li>
+
 </ul>
 
 </nav>
@@ -130,22 +160,8 @@ Booking Form
 
 <input
 type="text"
-name="IC_Number"
-placeholder="000000000000"
-pattern="[0-9]{12}"
-maxlength="12"
-required>
-
-</div>
-
-<div class="row">
-
-<label>Age</label>
-
-<input
-type="number"
-name="age"
-required>
+value="<?= $IC_Number ?>"
+readonly>
 
 </div>
 
@@ -156,29 +172,8 @@ required>
 <input
 type="text"
 name="mobile"
+value="<?= htmlspecialchars($mobile) ?>"
 required>
-
-</div>
-
-<div class="row">
-
-<label>Preferred Hospital</label>
-
-<select name="hospital" required>
-
-<option value="">
-Select Hospital
-</option>
-
-<?php while($hospital=mysqli_fetch_assoc($hospital_query)){ ?>
-
-<option value="<?= $hospital['Hospital_ID'] ?>">
-<?= $hospital['Name'] ?>
-</option>
-
-<?php } ?>
-
-</select>
 
 </div>
 
@@ -189,6 +184,7 @@ Select Hospital
 <input
 type="date"
 name="appointment_date"
+value="<?= $date ?>"
 min="<?= date('Y-m-d',strtotime('+1 day')) ?>"
 required>
 
@@ -201,6 +197,9 @@ required>
 <input
 type="time"
 name="time"
+value="<?= $time ?>"
+min="08:00"
+max="17:00"
 required>
 
 </div>
