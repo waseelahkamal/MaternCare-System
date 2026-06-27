@@ -5,14 +5,15 @@ session_start();
 $conn = mysqli_connect("localhost","root","","MaternCare");
 
 $name = $_SESSION['username'];
+$doctor_id = $_SESSION['Doctor_ID'];
+$total_patient = "
+SELECT *
+FROM booking
+WHERE Doctor_ID='$doctor_id'
+";
 
-$total_patient = "SELECT * FROM booking";
 $total_result = mysqli_query($conn,$total_patient);
 $total = mysqli_num_rows($total_result);
-
-$total_doctor = "SELECT * FROM doctors"; 
-$doctor_result = mysqli_query($conn,$total_doctor); 
-$doctor = mysqli_num_rows($doctor_result);
 
 ?>
 
@@ -35,7 +36,6 @@ $doctor = mysqli_num_rows($doctor_result);
     <ul>
         <li><a href="doctorhome.php">Home</a></li>
         <li><a href="doctorrecord.php">Patient Record</a></li>
-        <li><a href="bookinglist.php">Booking List</a></li>
         <li><a href="logout.php" class="logout-btn">Sign Out</a></li>
     </ul>
 
@@ -54,15 +54,8 @@ $doctor = mysqli_num_rows($doctor_result);
 
         <div class="total-card">
 
-            <h2>Total Patients</h2>
+            <h2>Total Patient</h2>
             <h1><?php echo $total; ?></h1>
-
-        </div>
-
-        <div class="total-card">
-
-            <h2>Total Doctors</h2>
-            <h1><?php echo $doctor; ?></h1>
 
         </div>
 
@@ -78,7 +71,7 @@ $doctor = mysqli_num_rows($doctor_result);
 
         <div class="note-card">
             <h3>Patient Care</h3>
-            <p>Always review the patient's medical history before consultationand ensure all treatment records are updated accurately.</p>
+            <p>Always review the patient's medical history before consultation and ensure all treatment records are updated accurately.</p>
         </div>
 
         <div class="note-card">
