@@ -55,6 +55,7 @@ unset($_SESSION['message']);
         <li><a href="adminhome.php">Home</a></li>
         <li><a href="adminreport.php">Report</a></li>
         <li><a href="doctorlist.php">Doctor List</a></li>
+        <li><a href="bookinglist.php">Booking List</a></li>
         <li><a href="adminrecord.php">Record</a></li>
         <li><a href="logout.php"class="logout-btn">Sign Out</a>
     </li>
@@ -92,10 +93,10 @@ $result
 <td><?= $row['Name'] ?></td>
 <td><?= $row['Specialization'] ?></td>
 <td><?= $row['Email'] ?></td>
+
 <td><a class="update" href="updatedoctor.php?id=<?= $row['Doctor_ID'] ?>">
 Update
 </a>
-
 
 </td>
 
