@@ -4,27 +4,39 @@ include("connect.php");
 
 $message = "";
 
+/* GET NEXT HOSPITAL ID */
+$getLast = mysqli_query($conn,"
+SELECT MAX(Hospital_ID) AS last_id
+FROM hospital
+");
+
+$data = mysqli_fetch_assoc($getLast);
+
+$next_id = $data['last_id'] + 1;
+$message = "";
+
 if(isset($_POST['add']))
 {
-    $hospital_id = $_POST['hospital_id'];
-    $name = $_POST['name'];
-    $address = $_POST['address'];
-    $link = $_POST['link'];
-    $photo = $_POST['photo'];
+$name = $_POST['name'];
+$address = $_POST['address'];
+$link = $_POST['link'];
+$photo = $_POST['photo'];
 
-    $sql = "INSERT INTO hospital
-            (Hospital_ID, Name, Address, Link, Photo)
-            VALUES
-            ('$hospital_id','$name','$address','$link','$photo')";
+$sql = "
+INSERT INTO hospital
+(Name, Address, Link, Photo)
+VALUES
+('$name','$address','$link','$photo')
+";
 
-    if(mysqli_query($conn,$sql))
-    {
-        $message = "Hospital Added Successfully!";
-    }
-    else
-    {
-        $message = "Failed to Add Hospital!";
-    }
+if(mysqli_query($conn,$sql))
+{
+$message = "Hospital Added Successfully!";
+}
+else
+{
+$message = "Failed to Add Hospital!";
+}
 }
 
 ?>
@@ -34,9 +46,9 @@ if(isset($_POST['add']))
 
 <head>
 
-    <title>Add Hospital</title>
+<title>Add Hospital</title>
 
-    <link rel="stylesheet" href="addhospitalstyle.css">
+<link rel="stylesheet" href="addhospitalstyle.css">
 
 </head>
 
@@ -44,22 +56,21 @@ if(isset($_POST['add']))
 
 <nav>
 
-    <div class="logo">
-        <img src="logo.jfif" alt="Logo">
-        <h1>MaternCare</h1>
-    </div>
-    
-    <ul>
-        <li><a href="adminhome.php">Home</a></li>
-        <li><a href="adminreport.php">Report</a></li>
-        <li><a href="doctorlist.php">Doctor List</a></li>
-        <li><a href="adminrecord.php">Record</a></li>
-        <li><a href="logout.php"class="logout-btn">Sign Out</a>
-    </li>
-    </ul>
+<div class="logo">
+<img src="logo.jfif">
+<h1>MaternCare</h1>
+</div>
+
+<ul>
+<li><a href="adminhome.php">Home</a></li>
+<li><a href="adminreport.php">Report</a></li>
+<li><a href="doctorlist.php">Doctor List</a></li>
+<li><a href="bookinglist.php">Booking List</a></li>
+<li><a href="adminrecord.php">Record</a></li>
+<li><a href="logout.php" class="logout-btn">Sign Out</a></li>
+</ul>
 
 </nav>
-
 
 <h2>Add Hospital</h2>
 
@@ -67,74 +78,69 @@ if(isset($_POST['add']))
 
 <div class="form-box">
 
-    <p class="message">
-        <?php echo $message; ?>
-    </p>
+<p class="message">
+<?php echo $message; ?>
+</p>
 
-    <div class="row">
+<div class="row">
 
-        <label>Hospital ID</label>
+<label>Hospital ID</label>
 
-        <input type="text"
-               name="hospital_id"
-               required>
+<input type="text"
+value="<?php echo $next_id; ?>"
+readonly>
 
-    </div>
+</div>
+<div class="row">
 
-    <div class="row">
+<label>Name</label>
 
-        <label>Name</label>
+<input type="text"
+name="name"
+required>
 
-        <input type="text"
-               name="name"
-               required>
+</div>
 
-    </div>
+<div class="row">
 
-    <div class="row">
+<label>Address</label>
 
-        <label>Address</label>
+<textarea name="address" required></textarea>
 
-        <textarea
-            name="address"
-            required>
-        </textarea>
+</div>
 
-    </div>
+<div class="row">
 
-    <div class="row">
+<label>Website Link</label>
 
-        <label>Website Link</label>
+<input type="text"
+name="link"
+required>
 
-        <input type="text"
-               name="link"
-               required>
+</div>
 
-    </div>
+<div class="row">
 
-    <div class="row">
+<label>Photo</label>
 
-        <label>Photo</label>
+<input type="text"
+name="photo"
+placeholder="Example: hospital.jpg"
+required>
 
-        <input type="text"
-               name="photo"
-               placeholder="Example: HospitalPantai.jpg"
-               required>
+</div>
 
-    </div>
+<div class="button-area">
 
-    <div class="button-area">
+<button type="submit" name="add">
+Add
+</button>
 
-        <button type="submit"
-                name="add">
-            Add
-        </button>
+<button type="reset">
+Clear
+</button>
 
-        <button type="reset">
-            Clear
-        </button>
-
-    </div>
+</div>
 
 </div>
 
