@@ -90,8 +90,6 @@ nav ul li a:hover{
     padding-bottom:12px;
 }
 
-/* INFORMATION ROW */
-
 .info-row{
     display:flex;
     padding:12px 0;
@@ -112,8 +110,6 @@ nav ul li a:hover{
     flex:1;
     color:#333;
 }
-
-/* RESPONSIVE */
 
 @media(max-width:768px){
 
