@@ -10,75 +10,78 @@ if(isset($_POST['login']))
     $name = trim($_POST['name']);
     $ic = trim($_POST['ic']);
 
+    //ADMIN LOGIN
     if(substr($ic,0,1) == "A")
     {
-	    $sql = "SELECT * FROM admins
-		        WHERE Name='$name'
-		        AND Admin_ID='$ic'";
+        $sql = "SELECT * FROM admins
+                WHERE Name='$name'
+                AND Admin_ID='$ic'";
 
-	    $result= mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
-	    if(mysqli_num_rows($result) > 0)
-	    {
-	        $row = mysqli_fetch_assoc($result);
-
-	        $_SESSION['username'] = $row['Name'];
-
-	        header("Location: adminhome.php");
-	        exit();
-	    }
-	    else
-	    {
-	        $message = "Invalid Admin Login!";
-	    }
-    }
-
-    else if(substr($ic,0,1) == "D")
-    {
-	    $sql = "SELECT * FROM doctors
-		        WHERE Name='$name'
-		        AND Doctor_ID='$ic'";
-
-	    $result = mysqli_query($conn, $sql);
-
-	    if(mysqli_num_rows($result) > 0)
+        if(mysqli_num_rows($result) > 0)
         {
             $row = mysqli_fetch_assoc($result);
 
             $_SESSION['username'] = $row['Name'];
-            $_SESSION['Doctor_ID'] = $row['Doctor_ID'];
 
-            header("Location: doctorhome.php");
+            header("Location: adminhome.php");
             exit();
         }
         else
         {
-	        $message = "Invalid Doctor Login!";
+            $message = "Invalid Admin Login!";
         }
     }
 
+    //DOCTOR LOGIN
+    else if(substr($ic,0,1) == "D")
+    {
+        $sql = "SELECT * FROM doctors
+                WHERE Name='$name'
+                AND Doctor_ID='$ic'";
+
+        $result = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($result) > 0)
+{
+    $row = mysqli_fetch_assoc($result);
+
+    $_SESSION['username'] = $row['Name'];
+    $_SESSION['Doctor_ID'] = $row['Doctor_ID'];
+
+    header("Location: doctorhome.php");
+    exit();
+}
+        else
+        {
+            $message = "Invalid Doctor Login!";
+        }
+    }
+
+    //PATIENT LOGIN 
     else
     {
-	    $sql = "SELECT * FROM users
-		        WHERE Name='$name'
-		        AND IC_Number='$ic'";
+        $sql = "SELECT * FROM users
+                WHERE Name='$name'
+                AND IC_Number='$ic'";
 
-	    $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
-	    if(mysqli_num_rows($result) > 0)
-	    {
-	        $row = mysqli_fetch_assoc($result);
+        if(mysqli_num_rows($result) > 0)
+        {
+            $row = mysqli_fetch_assoc($result);
 
-	        $_SESSION['username'] = $row['Name'];
-	        $_SESSION['IC_Number'] = $row['IC_Number'];
+            $_SESSION['username'] = $row['Name'];
+            $_SESSION['IC_Number'] = $row['IC_Number'];
 
-	        header("Location: patienthome.php");
-	        exit();
-	    }
-	    else
-	    {
-	        $message = "Invalid Patient Login!";
-	    }
+            header("Location: patienthome.php");
+            exit();
+        }
+        else
+        {
+            $message = "Invalid Patient Login!";
+        }
     }
 }
 ?>
@@ -109,25 +112,25 @@ if(isset($_POST['login']))
 
         <form method="POST">
 
-	        <label>Name</label>
-	        <input type="text" name="name" required>
+            <label>Name</label>
+            <input type="text" name="name" required>
 
-	        <label>NR-IC / ID Number</label>
-	        <input type="text" name="ic" required>
+            <label>NR-IC / ID Number</label>
+            <input type="text" name="ic" required>
 
-	        <button type="submit" name="login">
-		        Login
-	        </button>
+            <button type="submit" name="login">
+                Login
+            </button>
 
-	    </form>
+        </form>
 
-	    <p style="margin-top:15px;">
-	        Don't have account?
-	        <a href="register.php">Register Here</a>
-	    </p>
+        <p style="margin-top:15px;">
+            Don't have account?
+            <a href="register.php">Register Here</a>
+        </p>
 
     </div>
-    
+
     <div class="right">
         <img src="mother.jpg">
     </div>
