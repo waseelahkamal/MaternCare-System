@@ -89,7 +89,6 @@ if(isset($_POST['save_assessment']))
     <ul>
         <li><a href="doctorhome.php">Home</a></li>
         <li><a href="doctorrecord.php">Patient Record</a></li>
-        <li><a href="bookinglist.php">Booking List</a></li>
         <li><a href="logout.php" class="logout-btn">Sign Out</a></li>
     </ul>
 
