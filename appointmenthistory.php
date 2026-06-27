@@ -49,42 +49,41 @@ if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
 ?>
 
-    <div class="appointment-card">
+<div class="appointment-card">
 
-        <p><strong>Booking Ref :</strong>
-            <?php echo $row['Booking_REF']; ?>
-        </p>
+    <p><strong>Booking Ref :</strong>
+        <?php echo $row['Booking_REF']; ?>
+    </p>
 
-        <p><strong>Checkup Date :</strong>
-            <?php echo $row['appointment_date']; ?>
-        </p>
+    <p><strong>Checkup Date :</strong>
+        <?php echo $row['appointment_date']; ?>
+    </p>
 
-        <p><strong>Checkup Time :</strong>
-            <?php echo $row['Time']; ?>
-        </p>
+    <p><strong>Checkup Time :</strong>
+        <?php echo $row['Time']; ?>
+    </p>
 
+    <p><strong>Doctor Name :</strong>
+        <?php echo $row['Doctor_Name'] ? $row['Doctor_Name'] : 'Not Assigned'; ?>
+    </p>
 
-        <p><strong>Status :</strong>
-            <?php
-            $status = $row['Status'];
+    <p><strong>Status :</strong>
+        <?php
+        $status = $row['Status'];
 
-            if($status == "Approved")
-            {
-                echo "<span class='status-approved'>$status</span>";
-            }
+        if($status == "Approved"){
+            echo "<span class='status-approved'>$status</span>";
+        }
+        else if($status == "Rejected"){
+            echo "<span class='status-rejected'>$status</span>";
+        }
+        else{
+            echo "<span class='status-pending'>$status</span>";
+        }
+        ?>
+    </p>
 
-            else if($status == "Rejected")
-            {
-                echo "<span class='status-rejected'>$status</span>";
-            }
-            else
-            {
-                echo "<span class='status-pending'>$status</span>";
-            }
-            ?>
-        </p>
-
-    </div>
+</div>
 
 <?php
 
