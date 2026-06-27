@@ -4,6 +4,26 @@ body{
     background:#f5dff4;
 }
 
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    margin:0;
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
 nav{
     background:#4f925d;
     margin:20px;
@@ -66,44 +86,72 @@ nav ul li a:hover{
 .logout-btn:hover{
     background:#f1f1f1;
 }
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+    margin:0;
+    padding:0;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-size:17px;
+}
+
+.logout-btn{
+    background:white;
+    color:#4f925d !important;
+    padding:10px 20px;
+    border-radius:25px;
+}
+
+
 .main-container{
-    max-width:1200px;
-    margin:auto;
+    text-align:center;
+    padding:20px;
 }
 
 h1{
-    text-align:center;
-    color:#6E5C56;
-    margin-bottom:40px;
-}
-
-.record-wrapper{
-    display:flex;
-    gap:30px;
-    align-items:flex-start;
+    color:#3f7f4e;
 }
 
 .card{
-    flex:1;
-    background:#FFF8F4;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    background:#ffb6cc;
+    width:45%;
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    text-align:left;
 }
 
-.card h2{
-    color:#B67C73;
-    border-bottom:2px solid #E9D2CC;
-    padding-bottom:10px;
-    margin-bottom:20px;
+.btn{
+    padding: 10px 22px;
+    border: none;
+    border-radius: 25px;
+
+    background: #4f925d;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.card p{
-    margin:14px 0;
-    color:#444;
-    line-height:1.6;
+.btn:hover{
+    background: #3f7f4e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-strong{
-    color:#5C4B45;
+.btn:active{
+    transform: scale(0.97);
 }
