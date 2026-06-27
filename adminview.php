@@ -3,8 +3,10 @@
 $conn=mysqli_connect("localhost","root","","MaternCare");
 
 $record_ref=$_GET['id'];
-
-$sql="SELECT * FROM record WHERE Record_REF='$record_ref'";
+$sql = "SELECT * 
+        FROM record 
+        WHERE Record_REF='$record_ref'
+        ORDER BY Record_REF DESC";
 
 $result=mysqli_query($conn,$sql);
 
@@ -34,6 +36,7 @@ $row=mysqli_fetch_assoc($result);
         <li><a href="adminhome.php">Home</a></li>
         <li><a href="adminreport.php">Report</a></li>
         <li><a href="doctorlist.php">Doctor List</a></li>
+        <li><a href="bookinglist.php">Booking List</a></li>
         <li><a href="adminrecord.php">Record</a></li>
         <li><a href="logout.php"class="logout-btn">Sign Out</a>
     </li>
@@ -57,7 +60,6 @@ $row=mysqli_fetch_assoc($result);
 
 <h2>Maternal Record</h2>
 
-<p><b>Preferred Hospital:</b> <?= $row['Hospital_Name'] ?></p>
 <p><b>Blood Pressure:</b> <?= $row['BloodPressure'] ?></p>
 <p><b>Weight:</b> <?= $row['Weight'] ?> kg</p>
 <p><b>Height:</b> <?= $row['Height'] ?> cm</p>
