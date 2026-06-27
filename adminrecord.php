@@ -26,6 +26,7 @@ $result=mysqli_query($conn,$sql);
 <li><a href="adminhome.php">Home</a></li>
 <li><a href="adminreport.php">Report</a></li>
 <li><a href="doctorlist.php">Doctor List</a></li>
+<li><a href="bookinglist.php">Booking List</a></li>
 <li><a href="adminrecord.php">Record</a></li>
 <li><a href="logout.php" class="logout-btn">Sign Out</a></li>
 </ul>
