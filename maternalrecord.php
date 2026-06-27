@@ -4,7 +4,6 @@ session_start();
 $conn = mysqli_connect("localhost","root","","materncare");
 
 $ic_number = $_SESSION['IC_Number'] ?? null;
-
 $row = null;
 
 if($ic_number){
@@ -36,7 +35,7 @@ if($ic_number){
 
 <nav>
     <div class="logo">
-        <img src="logo.jfif" alt="Logo">
+        <img src="logo.jfif">
         <h1>MaternCare</h1>
     </div>
 
@@ -52,33 +51,20 @@ if($ic_number){
 
     <h1>My Medical Record</h1>
 
-    <div class="record-wrapper">
-
     <?php if($row): ?>
 
-        <!-- ADA RECORD -->
         <div class="card">
             <h2>Patient Information</h2>
 
-            <p><strong>Name:</strong> <?php echo $row['Name']; ?></p>
-            <p><strong>IC Number:</strong> <?php echo $row['IC_Number']; ?></p>
-            <p><strong>Booking Ref:</strong> <?php echo $row['Booking_REF']; ?></p>
-            <p><strong>Checkup Date:</strong> <?php echo $row['CheckupDate']; ?></p>
-            <p><strong>Checkup Time:</strong> <?php echo $row['CheckupTime']; ?></p>
-        </div>
+            <p><strong>Name:</strong> <?= $row['Name'] ?></p>
+            <p><strong>IC Number:</strong> <?= $row['IC_Number'] ?></p>
+            <p><strong>Booking Ref:</strong> <?= $row['Booking_REF'] ?></p>
+            <p><strong>Checkup Date:</strong> <?= $row['CheckupDate'] ?></p>
+            <p><strong>Checkup Time:</strong> <?= $row['CheckupTime'] ?></p>
 
-        <div class="card">
-            <h2>Maternal Record</h2>
-
-            <p><strong>Blood Pressure:</strong> <?php echo $row['BloodPressure']; ?></p>
-            <p><strong>Weight:</strong> <?php echo $row['Weight']; ?> kg</p>
-            <p><strong>Height:</strong> <?php echo $row['Height']; ?> cm</p>
-            <p><strong>Pregnancy Week:</strong> <?php echo $row['PregnancyWeek']; ?></p>
-            <p><strong>Baby Heart Rate:</strong> <?php echo $row['BabyHeartRate']; ?> bpm</p>
-            <p><strong>Blood Sugar Level:</strong> <?php echo $row['BloodSugarLevel']; ?></p>
-            <p><strong>Fetal Movement:</strong> <?php echo $row['FetalMovement']; ?></p>
-            <p><strong>Medical Condition:</strong> <?php echo $row['MedicalCondition']; ?></p>
-            <p><strong>Notes:</strong> <?php echo $row['Notes']; ?></p>
+            <a href="viewrecord.php">
+                <button class="btn">View Maternal Record</button>
+            </a>
         </div>
 
     <?php else: ?>
@@ -89,8 +75,6 @@ if($ic_number){
         </div>
 
     <?php endif; ?>
-
-    </div>
 
 </div>
 
