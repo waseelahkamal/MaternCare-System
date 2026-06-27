@@ -1,7 +1,6 @@
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#ead7ea;
+    background-color:#e6d7e8;
+    font-family:Arial, sans-serif;
 }
 
 nav{
@@ -34,94 +33,61 @@ nav{
     font-weight:bold;
 }
 
+nav input{
+    padding:10px;
+    border:none;
+    border-radius:30px;
+}
+
 nav ul{
     display:flex;
-    align-items:center;
     list-style:none;
-    gap:25px;
-    margin:0;
-    padding:0;
+    gap:20px;
+    color:white;
+    align-items:center;
 }
 
 nav ul li a{
-    text-decoration:none;
     color:white;
+    text-decoration:none;
     font-weight:bold;
-    font-size:17px;
-}
-
-nav ul li a:hover{
-    color:#e8f5e9;
 }
 
 .logout-btn{
     background:white;
     color:#4f925d !important;
     padding:10px 20px;
-    border-radius:25px;
-    text-decoration:none;
-    font-weight:bold;
+    border-radius:20px;
 }
 
-.logout-btn:hover{
-    background:#f1f1f1;
+h1{
+    text-align:center;
+    color:#2e8b57;
+    margin-top:30px;
 }
 
-.container{
-    width:65%;
+.record-container{
+    width:80%;
     margin:30px auto;
 }
 
-.section{
-    background:#F8EAE4;
-    border:1px solid #F8EAE4;
-    padding:15px;
-    border-radius:20px;
+.record-card{
+    background:white;
+    border-radius:10px;
+    padding:20px;
     margin-bottom:20px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
-.section h2{
-    color:#7B3F00;
-    margin-top:0;
-    margin-bottom:25px;
-    border-bottom:2px solid #d8d8d8;
-    padding-bottom:12px;
+.record-card p{
+    margin:10px 0;
+    font-size:16px;
 }
 
-.info-row{
-    display:flex;
-    padding:12px 0;
-    border-bottom:1px solid #e0e0e0;
-}
-
-.info-row:last-child{
-    border-bottom:none;
-}
-
-.info-row label{
-    width:220px;
-    font-weight:bold;
-    color:#2e7d4f;
-}
-
-.info-row span{
-    flex:1;
-    color:#333;
-}
-
-@media(max-width:768px){
-
-    .container{
-        width:90%;
-    }
-
-    .info-row{
-        flex-direction:column;
-        gap:5px;
-    }
-
-    .info-row label{
-        width:auto;
-    }
+.notes-box{
+    min-height:80px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding:10px;
+    background:#f9f9f9;
 }
