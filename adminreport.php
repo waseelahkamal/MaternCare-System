@@ -63,7 +63,7 @@ $data[]=$row;
 
 <div class="container">
 
-<h1>Monthly Appointment Report (Previous Months)</h1>
+<h1>Monthly Appointment Report</h1>
 
 <table>
 
