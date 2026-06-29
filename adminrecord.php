@@ -1,25 +1,5 @@
 <?php
-session_start();
-
 $conn=mysqli_connect("localhost","root","","MaternCare");
-
-if(!isset($_SESSION['hidden_record']))
-{
-$_SESSION['hidden_record']=[];
-}
-
-if(isset($_GET['hide']))
-{
-$id=$_GET['hide'];
-
-if(!in_array($id,$_SESSION['hidden_record']))
-{
-$_SESSION['hidden_record'][]=$id;
-}
-
-header("Location: adminrecord.php");
-exit();
-}
 
 $sql="
 SELECT *
@@ -28,7 +8,6 @@ ORDER BY CheckupDate DESC, CheckupTime DESC
 ";
 
 $result=mysqli_query($conn,$sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +27,7 @@ $result=mysqli_query($conn,$sql);
 <nav>
 
 <div class="logo">
-<img src="logo.jfif">
+<img src="logo.jfif" alt="Logo">
 <h1>MaternCare</h1>
 </div>
 
@@ -70,23 +49,13 @@ $result=mysqli_query($conn,$sql);
 <table>
 
 <tr>
-
 <th>Record Ref</th>
 <th>Booking Ref</th>
 <th>Name</th>
 <th>Patient Details</th>
-<th>Action</th>
-
 </tr>
 
 <?php while($row=mysqli_fetch_assoc($result)){ ?>
-
-<?php
-if(in_array($row['Record_REF'],$_SESSION['hidden_record']))
-{
-continue;
-}
-?>
 
 <tr>
 
@@ -97,7 +66,6 @@ continue;
 <td><?= $row['Name'] ?></td>
 
 <td>
-
 <a
 class="view"
 href="adminview.php?id=<?= $row['Record_REF'] ?>">
@@ -105,20 +73,6 @@ href="adminview.php?id=<?= $row['Record_REF'] ?>">
 View
 
 </a>
-
-</td>
-
-<td>
-
-<a
-class="delete"
-href="?hide=<?= $row['Record_REF'] ?>"
-onclick="return confirm('Remove this record from interface?')">
-
-Delete
-
-</a>
-
 </td>
 
 </tr>
