@@ -1,7 +1,12 @@
 <?php
 $conn=mysqli_connect("localhost","root","","MaternCare");
 
-$sql="SELECT * FROM record";
+$sql="
+SELECT *
+FROM record
+ORDER BY CheckupDate DESC, CheckupTime DESC
+";
+
 $result=mysqli_query($conn,$sql);
 ?>
 
