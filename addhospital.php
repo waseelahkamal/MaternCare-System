@@ -4,7 +4,6 @@ include("connect.php");
 
 $message = "";
 
-/* GET NEXT HOSPITAL ID */
 $getLast = mysqli_query($conn,"
 SELECT MAX(Hospital_ID) AS last_id
 FROM hospital
