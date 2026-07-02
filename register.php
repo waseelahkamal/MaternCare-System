@@ -12,7 +12,6 @@ if(isset($_POST['register']))
     $ic = trim($_POST['ic']);
     $email = trim($_POST['email']);
 
-    /* VALIDATE IC */
 
     if(!preg_match("/^[0-9]{12}$/",$ic))
     {
@@ -26,7 +25,6 @@ if(isset($_POST['register']))
     else
     {
 
-        /* CHECK EMAIL */
 
         $check =
         mysqli_query(
@@ -48,7 +46,6 @@ if(isset($_POST['register']))
         else
         {
 
-            /* INSERT USER */
 
             $sql =
             "INSERT INTO users
